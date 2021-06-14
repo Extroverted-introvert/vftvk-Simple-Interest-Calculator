@@ -1,5 +1,6 @@
 function compute()
 {
+    prinflag = checkPrincipal()
     var prin = document.getElementById("principal").value;
     var rate = document.getElementById("rate").value;
     var year = document.getElementById("years").value;
@@ -8,7 +9,7 @@ function compute()
     var amount = parseInt(prin) + parseInt(interest)
     var formatted_year = new Date().getFullYear()+parseInt(year);
 
-    document.getElementById("result_val").innerHTML ="If you deposit "+prin+",\<br\>at an interest rate of "+rate+"%<br>You will receive an amount of "+amount+",\<br\>in the year "+formatted_year+"\<br\>"
+    document.getElementById("result_val").innerHTML ="If you deposit "+prin+",\<br\>at an interest rate of "+rate+"%<br>You will receive an amount of "+interest+",\<br\>in the year "+formatted_year+"\<br\>"
 }
 
 function updateRate()
@@ -20,9 +21,9 @@ function updateRate()
 function checkPrincipal()
 {
    var prin = document.getElementById("principal").value;
-   if (prin >=0)
+   if (prin <=0)
    {
-       alert("Please enter valid Principal");
+       alert("Enter a positive number");
        prin.focus();
        return false;
    }
